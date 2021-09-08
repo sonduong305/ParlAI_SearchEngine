@@ -14,7 +14,6 @@ import chardet
 import fire
 import html2text
 import googlesearch
-import parlai.agents.rag.retrieve_api
 import rich
 import rich.markup
 import requests
@@ -464,12 +463,6 @@ class Application:
         print(f"Query: `{query}`")
         print(f"n: {n}")
 
-        retriever = parlai.agents.rag.retrieve_api.SearchEngineRetriever(
-            dict(
-                search_server=f"{host}:{port}",
-                skip_retrieval_token=False,
-            )
-        )
         print("Retrieving one.")
         print(retriever.retrieve([query], n))
         print("Done.")
